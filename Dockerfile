@@ -8,7 +8,8 @@ LABEL "com.github.actions.description"="Deploy your DNS configuration to multipl
 LABEL "com.github.actions.icon"="cloud"
 LABEL "com.github.actions.color"="yellow"
 
-RUN ["dnscontrol", "version"]
+RUN dnscontrol version && \
+    apk add --no-cache bash
 
 COPY README.md entrypoint.sh bin/filter-preview-output.sh /
 ENTRYPOINT ["/entrypoint.sh"]
