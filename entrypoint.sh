@@ -6,6 +6,8 @@ set -o pipefail
 CONFIG_ABS_PATH="$(readlink -f "${INPUT_CONFIG_FILE}")"
 CREDS_ABS_PATH="$(readlink -f "${INPUT_CREDS_FILE}")"
 
+PREFIX=GITHUB_
+
 WORKING_DIR="$(dirname "${CONFIG_ABS_PATH}")"
 cd "$WORKING_DIR" || exit
 
@@ -18,6 +20,14 @@ ARGS=(
 if [ "$1" != "check" ]; then
     ARGS+=(--creds "$CREDS_ABS_PATH")
 fi
+
+GHA_VARS=($(typeset -p | awk '$3 ~ "^"ENVIRON["PREFIX"] { print $3 }'))
+
+for value in "${GHA_VARS[@]}"
+do
+  ARGS+="--variable ${value} "
+done
+
 
 IFS=
 OUTPUT="$(dnscontrol "${ARGS[@]}")"
