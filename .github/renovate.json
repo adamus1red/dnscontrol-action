@@ -1,0 +1,17 @@
+{
+    "extends": [
+      "config:recommended",
+      "docker:enableMajor"
+    ],
+    "packageRules": [
+      {
+        "datasources": ["docker"],
+        "versioning": "semver"
+      },
+      {
+        "updateTypes": ["minor","patch","pin","digest"],
+        "automerge": true
+      }
+    ],
+    "includeForks": true
+  }
