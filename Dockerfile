@@ -1,4 +1,4 @@
-FROM stackexchange/dnscontrol:4.27.1@sha256:cc719a3434d61bfcffc24ed93154cd9682c8f4861a47385a073aaf0ac83aad2e
+FROM stackexchange/dnscontrol:4.33.1@sha256:a37be9904cc6871e2ed57753361a61dc65936d2aa26b1fb0e155343c006f33ba
 
 LABEL repository="https://github.com/koenrh/dnscontrol-action"
 LABEL maintainer="Koen Rouwhorst <info@koenrouwhorst.nl>"
