@@ -1,4 +1,4 @@
-FROM ghcr.io/dnscontrol/dnscontrol:5.7.1
+FROM ghcr.io/dnscontrol/dnscontrol:5.8.2
 
 LABEL repository="https://github.com/koenrh/dnscontrol-action"
 LABEL maintainer="Koen Rouwhorst <info@koenrouwhorst.nl>"
